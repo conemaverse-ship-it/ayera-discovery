@@ -42,6 +42,7 @@
     <span class="ib" id="vc" hidden style="cursor:default" aria-live="polite"></span>
     <button class="ib" id="rp" type="button" hidden>Intro</button>
     <button class="ib" id="map-home" type="button" aria-pressed="true">Africa map</button>
+    <button class="ib discover-trigger" id="discover-open" type="button">Discover ✦</button>
     <button class="ib" id="world-mode" type="button" aria-pressed="false">3D world</button>
     <button class="ib" id="sv" type="button">Saved</button>
     <button class="ib" id="vr" type="button" hidden>Enter VR</button>
@@ -63,7 +64,16 @@
   </nav>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <section id="discovery-hub" class="discovery-hub" hidden aria-modal="true" role="dialog" aria-labelledby="hub-title">
+    <div class="hub-backdrop" data-hub-close></div>
+    <div class="hub-sheet"><header class="hub-head"><div><div class="eyebrow"><span class="live-dot"></span> THE AYÉRA COLLECTION</div><h2 id="hub-title">Discover <em>Africa.</em></h2><p>Places, people and living culture — connected by place.</p></div><button class="details-close" type="button" data-hub-close aria-label="Close discovery">×</button></header>
+      <div class="hub-tabs" role="tablist" aria-label="Discovery categories"><button class="active" data-hub-tab="all" role="tab" aria-selected="true">For you</button><button data-hub-tab="culture" role="tab" aria-selected="false">Culture</button><button data-hub-tab="creators" role="tab" aria-selected="false">Creators</button><button data-hub-tab="stories" role="tab" aria-selected="false">Stories</button><button data-hub-tab="places" role="tab" aria-selected="false">Places</button></div>
+      <div class="hub-search"><span>⌕</span><input id="hub-search" type="search" placeholder="Search culture, cities, stories…" aria-label="Search discovery collection"></div>
+      <div id="hub-grid" class="hub-grid" aria-live="polite"></div><p class="hub-footnote">A curated starting collection. Local stories and creator profiles can grow with community contributions.</p>
+    </div>
+  </section>
   <script src="app.js" defer></script>
   <script src="map.js" defer></script>
+  <script src="discover.js" defer></script>
 </body>
 </html>
