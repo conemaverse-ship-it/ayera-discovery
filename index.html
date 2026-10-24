@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07090a">
+  <meta name="description" content="AYÉRA — an immersive world celebrating African places, culture, creators and stories.">
+  <title>AYÉRA — an African world</title>
+  <link rel="preload" href="assets/intro.mp4" as="video" type="video/mp4">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="intro" role="dialog" aria-label="Welcome to AYÉRA">
+    <video id="iv" muted playsinline preload="auto" aria-hidden="true"></video>
+    <div id="ifb" hidden></div>
+    <div class="itop"><span class="logo">AY<b>É</b>RA</span><button class="ib" id="skip" type="button">Skip</button></div>
+    <div class="ibot" id="itag"><p>Africa isn’t a trend. It’s a world.</p></div>
+  </div>
+  <div id="load" hidden>AYÉRA</div>
+  <main id="map-shell" aria-label="Explore Africa">
+    <div id="africa-map" role="application" aria-label="Interactive map of Africa. Use the map controls to zoom and drag to explore."></div>
+    <div class="map-vignette" aria-hidden="true"></div>
+    <section class="map-intro-card" aria-labelledby="map-title">
+      <div class="eyebrow"><span class="live-dot"></span> THE AFRICAN CONTINENT</div>
+      <h1 id="map-title">A world of <em>stories.</em></h1>
+      <p>Explore places, people, culture and creative life across Africa.</p>
+      <label class="search-wrap" for="place-search"><span aria-hidden="true">⌕</span><input id="place-search" type="search" placeholder="Find a country or featured city" autocomplete="off"><button id="search-clear" type="button" aria-label="Clear search" hidden>×</button></label>
+      <div id="search-results" class="search-results" hidden></div>
+      <div class="map-card-footer"><span>START EXPLORING</span><span>Drag · Zoom · Discover</span></div>
+    </section>
+    <div class="map-zoom-controls" aria-label="Map zoom controls">
+      <span id="map-zoom-level" class="map-zoom-level">CONTINENT</span>
+      <button id="map-zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+      <button id="map-zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+      <button id="map-reset" type="button" aria-label="Show all of Africa" title="Show all of Africa">↺</button>
+    </div>
+    <div class="map-bottom-note"><span class="map-key"></span> <span>Discover Africa, one place at a time</span><span class="map-scale-note">CONTINENT → COUNTRY → CITY → LOCAL</span></div>
+  </main>
+  <div id="top" class="hud">
+    <span class="logo">AY<b>É</b>RA</span>
+    <span class="ib" id="vc" hidden style="cursor:default" aria-live="polite"></span>
+    <button class="ib" id="rp" type="button" hidden>Intro</button>
+    <button class="ib" id="map-home" type="button" aria-pressed="true">Africa map</button>
+    <button class="ib" id="world-mode" type="button" aria-pressed="false">3D world</button>
+    <button class="ib" id="sv" type="button">Saved</button>
+    <button class="ib" id="vr" type="button" hidden>Enter VR</button>
+  </div>
+  <div id="hint" class="hud" role="status">Welcome to AYÉRA</div>
+  <div id="js" class="hud" aria-label="Walking joystick"><div id="kn"></div></div>
+  <div id="zoom-controls" aria-label="Zoom controls">
+    <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+    <span id="zoom-level" aria-live="polite">100%</span>
+    <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+    <button id="zoom-reset" type="button" aria-label="Reset zoom" title="Reset zoom">↺</button>
+  </div>
+  <nav id="nav" class="hud" aria-label="Explore AYÉRA">
+    <button data-go="plaza" type="button">Plaza</button>
+    <button data-go="culture" type="button">Culture</button>
+    <button data-go="creators" type="button">Creators</button>
+    <button data-go="stories" type="button">Stories</button>
+    <button data-go="places" type="button">Places</button>
+  </nav>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="map.js" defer></script>
+</body>
+</html>
