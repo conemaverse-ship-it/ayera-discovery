@@ -1,38 +1,33 @@
-# AYÉRA World — Africa-first exploration project
+# AYÉRA — Complete Dashboard Prototype
 
-AYÉRA opens with its cinematic intro and then presents an interactive map of Africa as the main home experience. The original 3D world remains available from the top navigation.
+A new front-end concept for AYÉRA, with a cinematic first-visit introduction and a connected digital-world dashboard. This is an additive/replacement-ready prototype; review it before merging it into the existing live project.
 
 ## Files
-- `index.html` — app structure, intro, map shell and accessible controls.
-- `styles.css` — visual styling, responsive layouts, and location-detail drawer.
-- `app.js` — existing 3D world, intro, navigation, interactions and local persistence.
-- `map.js` — map setup, 54-country search index, featured cities/places, zoom, search, popups, and progressive location details.
-- `assets/intro.mp4` — intro video.
-- `assets/intro-slide-*.jpg` — fallback intro frames.
-- `assets/art-*.jpg` — artwork used in the 3D world.
+- `index.html` — intro, dashboard, and page sections
+- `styles.css` — responsive design
+- `app.js` — navigation, search/filter, preview actions, intro state, and dialog
 
-## Run locally
-Use a local server from this folder, for example:
+## Try it locally
+1. Download and unzip this folder.
+2. Open `index.html` in a modern browser. For the most consistent behavior, serve it using a local static server.
+3. The cinematic intro appears on first visit in the current tab. Press **Enter your world** or **Skip introduction** to continue.
+4. Use the left menu (desktop) or bottom navigation (mobile) to explore the sections.
 
-```bash
-python -m http.server 8000
-```
+## Important before publishing
+This package is a front-end prototype. Discovery cards are sample concepts and are not verified live listings. Connect, Marketplace, Create, accounts, messaging, notifications, payments, and immersive 3D/VR are not implemented backend services. Do not advertise those as working features yet.
 
-Then open `http://localhost:8000`. The app requires an internet connection for the Leaflet and Three.js libraries and for map tiles.
+The project uses no external JavaScript libraries. It does not require API keys.
 
-## Current exploration features
-- The cinematic intro remains the opening experience.
-- Africa is the default home screen after the intro.
-- Drag to pan; use the +/−/reset controls or mouse wheel to zoom.
-- Search all 54 countries in the current country index and curated featured cities/places.
-- Selecting a country opens its overview, region, capital label, and featured city links where available.
-- Selecting a featured city/place opens its location details and curated neighborhood/area suggestions where supplied.
-- Use **3D world** to switch to the original 3D environment, and **Africa map** to return.
+## Safe integration into the existing AYÉRA site
+1. Keep a backup of the currently deployed files, especially any intro video, map, or interactive 3D assets.
+2. Test this prototype in a separate branch or preview deployment.
+3. If you decide to replace the existing homepage, merge the new `index.html`, `styles.css`, and `app.js` deliberately and preserve any existing assets/features that must remain.
+4. Test desktop and mobile, navigation, browser console, load performance, and the Netlify deployment before making it the live homepage.
 
-## Important limitations
-- The country index covers 54 African countries, but the map currently uses a basemap rather than a bespoke set of country-boundary polygons.
-- Country coordinates are approximate map focus points, not exact borders or geocoded capital positions.
-- City and neighborhood content is curated starter content, not a complete or independently verified local directory. Some countries do not yet have featured city guides.
-- Searching is limited to the built-in index; it does not geocode arbitrary addresses or dynamically load every settlement.
-- Creator/story entries remain demonstration content; saved items and follows are stored in local browser storage. Production authentication, database, moderation, and live content services are not configured.
-- For production, add tests, real location datasets and licensing review, a resilient data/API layer, error reporting, security review, and tile-provider usage/privacy review.
+## Production roadmap
+1. Authentication and user profiles.
+2. Database-backed content and real search.
+3. Moderation/reporting and creator publishing.
+4. Verified business onboarding and secure payments.
+5. Accessible, low-bandwidth design and performance.
+6. Interactive 3D locations, then WebXR/VR support where compatible.

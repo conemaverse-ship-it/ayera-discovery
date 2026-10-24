@@ -2,78 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#07090a">
-  <meta name="description" content="AYÉRA — an immersive world celebrating African places, culture, creators and stories.">
-  <title>AYÉRA — an African world</title>
-  <link rel="preload" href="assets/intro.mp4" as="video" type="video/mp4">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a120e">
+  <meta name="description" content="AYÉRA — a connected digital world for Africa. Discover, connect, create and grow.">
+  <title>AYÉRA — Your Digital World</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="intro" role="dialog" aria-label="Welcome to AYÉRA">
-    <video id="iv" muted playsinline preload="auto" aria-hidden="true"></video>
-    <div id="ifb" hidden></div>
-    <div class="itop"><span class="logo">AY<b>É</b>RA</span><button class="ib" id="skip" type="button">Skip</button></div>
-    <div class="ibot" id="itag"><p>Africa isn’t a trend. It’s a world.</p></div>
-  </div>
-  <div id="load" hidden>AYÉRA</div>
-  <main id="map-shell" aria-label="Explore Africa">
-    <div id="africa-map" role="application" aria-label="Interactive map of Africa. Use the map controls to zoom and drag to explore."></div>
-    <div class="map-vignette" aria-hidden="true"></div>
-    <section class="map-intro-card" aria-labelledby="map-title">
-      <div class="eyebrow"><span class="live-dot"></span> THE AFRICAN CONTINENT</div>
-      <h1 id="map-title">A world of <em>stories.</em></h1>
-      <p>Explore places, people, culture and creative life across Africa.</p>
-      <label class="search-wrap" for="place-search"><span aria-hidden="true">⌕</span><input id="place-search" type="search" placeholder="Find a country or featured city" autocomplete="off"><button id="search-clear" type="button" aria-label="Clear search" hidden>×</button></label>
-      <div id="search-results" class="search-results" hidden></div>
-      <div class="map-card-footer"><span>START EXPLORING</span><span>Drag · Zoom · Discover</span></div>
-    </section>
-    <div class="map-zoom-controls" aria-label="Map zoom controls">
-      <span id="map-zoom-level" class="map-zoom-level">CONTINENT</span>
-      <button id="map-zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
-      <button id="map-zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
-      <button id="map-reset" type="button" aria-label="Show all of Africa" title="Show all of Africa">↺</button>
+  <div class="intro" id="intro" aria-label="AYÉRA introduction">
+    <div class="intro-grain"></div>
+    <div class="intro-content">
+      <div class="intro-symbol">A<span>✦</span></div>
+      <p class="eyebrow">A NEW WORLD IS OPENING</p>
+      <h1>Welcome to<br><em>AYÉRA.</em></h1>
+      <p class="intro-line">Africa connected. Possibility without borders.</p>
+      <button class="button button-lime" id="enterButton">Enter your world <span>↗</span></button>
+      <button class="skip-intro" id="skipIntro">Skip introduction</button>
     </div>
-    <div class="map-bottom-note"><span class="map-key"></span> <span>Discover Africa, one place at a time</span><span class="map-scale-note">CONTINENT → COUNTRY → CITY → LOCAL</span></div>
-  </main>
-  <div id="top" class="hud">
-    <span class="logo">AY<b>É</b>RA</span>
-    <span class="ib" id="vc" hidden style="cursor:default" aria-live="polite"></span>
-    <button class="ib" id="rp" type="button" hidden>Intro</button>
-    <button class="ib" id="map-home" type="button" aria-pressed="true">Africa map</button>
-    <button class="ib discover-trigger" id="discover-open" type="button">Discover ✦</button>
-    <button class="ib" id="world-mode" type="button" aria-pressed="false">3D world</button>
-    <button class="ib" id="sv" type="button">Saved</button>
-    <button class="ib" id="vr" type="button" hidden>Enter VR</button>
+    <div class="intro-orbit orbit-a"></div><div class="intro-orbit orbit-b"></div>
+    <div class="intro-foot"><span>DISCOVER · CONNECT · CREATE</span><span>01 / YOUR WORLD</span></div>
   </div>
-  <div id="hint" class="hud" role="status">Welcome to AYÉRA</div>
-  <div id="js" class="hud" aria-label="Walking joystick"><div id="kn"></div></div>
-  <div id="zoom-controls" aria-label="Zoom controls">
-    <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
-    <span id="zoom-level" aria-live="polite">100%</span>
-    <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
-    <button id="zoom-reset" type="button" aria-label="Reset zoom" title="Reset zoom">↺</button>
+
+  <div class="app" id="app">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="brand-icon">A</span><span>AYÉRA<small>YOUR DIGITAL WORLD</small></span></a>
+      <div class="side-label">YOUR SPACE</div>
+      <button class="side-link active" data-view="home"><span>⌂</span> Home</button>
+      <button class="side-link" data-view="discover"><span>⌕</span> Discover <i>NEW</i></button>
+      <button class="side-link" data-view="connect"><span>◎</span> Connect</button>
+      <button class="side-link" data-view="market"><span>◇</span> Marketplace</button>
+      <button class="side-link" data-view="create"><span>✳</span> Create</button>
+      <button class="side-link" data-view="opportunities"><span>↗</span> Opportunities</button>
+      <div class="side-label side-label-lower">LOOKING AHEAD</div>
+      <button class="side-link" data-view="world"><span>◉</span> Immersive world <small>SOON</small></button>
+      <div class="sidebar-bottom">
+        <div class="mini-profile"><div class="profile-avatar">Y</div><div><strong>Your AYÉRA</strong><small>Personal space</small></div><span>···</span></div>
+        <p>Built for possibility.<br><span>Rooted in Africa.</span></p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="mobile-header">
+        <a class="brand" href="#home"><span class="brand-icon">A</span><span>AYÉRA<small>YOUR DIGITAL WORLD</small></span></a>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+      </header>
+      <header class="topbar">
+        <div><p class="date-label" id="dateLabel">YOUR WORLD, YOUR WAY</p><p class="topbar-title">Good things start <em>here.</em></p></div>
+        <div class="top-actions"><button class="search-shortcut" id="topSearch">⌕ <span>Search AYÉRA</span><kbd>/</kbd></button><button class="notification-btn" id="notifications" aria-label="Notifications">♧<i></i></button><button class="profile-chip"><span class="profile-avatar">Y</span><span>My space</span><b>⌄</b></button></div>
+      </header>
+
+      <section class="view active-view" id="view-home">
+        <section class="welcome-panel">
+          <div class="welcome-copy"><p class="eyebrow"><span class="pulse"></span> YOUR DIGITAL AFRICA</p><h1>One world.<br><em>Many possibilities.</em></h1><p>Discover places, meet people, find opportunities and bring your ideas to life — all in one connected space.</p><div class="welcome-actions"><button class="button button-lime" data-go="discover">Start exploring <span>↗</span></button><button class="button button-glass" data-go="world">Imagine the future <span>◉</span></button></div></div>
+          <div class="welcome-visual" aria-label="Abstract digital globe illustration"><div class="planet-ring ring-1"></div><div class="planet-ring ring-2"></div><div class="planet"><span>AFRICA</span><b>✦</b></div><div class="visual-label label-top">CULTURE <span>✳</span></div><div class="visual-label label-right">CONNECTION <span>◎</span></div><div class="visual-label label-bottom">POSSIBILITY <span>↗</span></div></div>
+          <div class="welcome-foot"><span>DISCOVER WHAT'S OUT THERE</span><span>01 — 06 <b>● ○ ○ ○ ○ ○</b></span></div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><p class="eyebrow">YOUR STARTING POINT</p><h2>What brings you <em>here?</em></h2></div><p class="muted">Choose a path. The world is yours to explore.</p></div>
+          <div class="service-grid">
+            <button class="service-card service-discover" data-go="discover"><span class="service-icon">⌕</span><span class="service-arrow">↗</span><strong>Discover</strong><small>Places, culture, stories and ideas</small><span class="service-bottom">EXPLORE THE CONTINENT <b>→</b></span></button>
+            <button class="service-card service-connect" data-go="connect"><span class="service-icon">◎</span><span class="service-arrow">↗</span><strong>Connect</strong><small>People, communities and shared interests</small><span class="service-bottom">FIND YOUR PEOPLE <b>→</b></span></button>
+            <button class="service-card service-market" data-go="market"><span class="service-icon">◇</span><span class="service-arrow">↗</span><strong>Marketplace</strong><small>Discover African businesses and makers</small><span class="service-bottom">SHOP AND SUPPORT <b>→</b></span></button>
+            <button class="service-card service-create" data-go="create"><span class="service-icon">✳</span><span class="service-arrow">↗</span><strong>Create</strong><small>Share stories, ideas and creative work</small><span class="service-bottom">MAKE SOMETHING <b>→</b></span></button>
+          </div>
+        </section>
+
+        <section class="section-block discover-preview" id="featured">
+          <div class="section-heading"><div><p class="eyebrow">HANDPICKED FOR DISCOVERY</p><h2>Explore the <em>extraordinary.</em></h2></div><button class="text-button" data-go="discover">View all discoveries ↗</button></div>
+          <div class="feature-grid" id="featuredGrid"></div>
+        </section>
+
+        <section class="future-panel">
+          <div class="future-copy"><p class="eyebrow">THE NEXT CHAPTER</p><h2>Today on your phone.<br><em>Tomorrow, step inside.</em></h2><p>AYÉRA is designed to grow from a useful digital platform into richer interactive spaces — with 3D exploration and compatible VR experiences as future possibilities.</p><button class="button button-glass" data-go="world">Explore the vision <span>↗</span></button></div>
+          <div class="future-art"><div class="future-circle">A<span>✦</span></div><div class="future-caption">A WORLD IN PROGRESS<br><b>MADE FOR EVERY SCREEN</b></div></div>
+        </section>
+        <footer><span>AYÉRA © 2026</span><span>Rooted in Africa. Open to the world.</span><button id="aboutButton">About this preview</button></footer>
+      </section>
+
+      <section class="view" id="view-discover">
+        <div class="page-intro"><p class="eyebrow">THE DISCOVERY HUB</p><h1>Find your next <em>something.</em></h1><p>Places, cultures, creators and ideas worth discovering.</p></div>
+        <div class="large-search"><span>⌕</span><input id="discoverSearch" type="search" placeholder="Search places, culture, creators…" autocomplete="off"><kbd>/</kbd></div>
+        <div class="filters" id="discoverFilters"><button class="filter active" data-filter="All">Everything</button><button class="filter" data-filter="Places">Places</button><button class="filter" data-filter="Culture">Culture</button><button class="filter" data-filter="Creators">Creators</button><button class="filter" data-filter="Stories">Stories</button><button class="filter" data-filter="Opportunities">Opportunities</button></div>
+        <div class="feature-grid full-grid" id="discoverGrid"></div><p class="empty-state" id="discoverEmpty" hidden>No results found. Try a different search.</p>
+      </section>
+
+      <section class="view" id="view-connect">
+        <div class="page-intro"><p class="eyebrow">PEOPLE & COMMUNITY</p><h1>Good things happen <em>together.</em></h1><p>A future home for shared interests, local communities and meaningful connections.</p></div>
+        <div class="notice-panel"><span class="notice-icon">◎</span><div><strong>Connection is on the roadmap</strong><p>This preview shows the direction. Real profiles, following, chat and community moderation need to be connected before launch.</p></div></div>
+        <div class="community-grid"><article class="community-card"><span>✳</span><p class="eyebrow">CULTURE & CREATIVITY</p><h3>Creative Africa</h3><p>Artists, designers, storytellers and people making things happen.</p><button class="text-button" data-toast="Community spaces are planned for the next build.">Preview community ↗</button></article><article class="community-card"><span>⌖</span><p class="eyebrow">LOCAL DISCOVERY</p><h3>Explore my city</h3><p>Discover neighbourhoods, recommendations and local stories.</p><button class="text-button" data-toast="Location-based communities will need user permission and verified listings.">Preview community ↗</button></article><article class="community-card"><span>↗</span><p class="eyebrow">BUILD & GROW</p><h3>Builders network</h3><p>Meet people who are learning, building businesses and sharing skills.</p><button class="text-button" data-toast="Member profiles and messaging are not connected yet.">Preview community ↗</button></article></div>
+      </section>
+
+      <section class="view" id="view-market">
+        <div class="page-intro"><p class="eyebrow">TRADE & DISCOVER</p><h1>Ideas become <em>opportunity.</em></h1><p>A place to discover African businesses, independent makers and services.</p></div>
+        <div class="market-hero"><div><p class="eyebrow">SUPPORT WHAT'S MADE HERE</p><h2>Meet the makers.<br><em>Find something meaningful.</em></h2><p>Explore a future marketplace built to help people and businesses reach beyond borders.</p></div><div class="market-stamp">MADE<br>WITH<br><b>✦</b><br>MEANING</div></div>
+        <div class="section-heading compact-heading"><h2>Marketplace <em>categories</em></h2><span class="muted">Concept preview</span></div>
+        <div class="category-grid"><button data-toast="Verified product listings will be added when marketplace services are connected."><span>◈</span><strong>Fashion & craft</strong><small>Textiles, clothing, handmade goods</small><b>↗</b></button><button data-toast="Verified business profiles are not connected yet."><span>▣</span><strong>Digital services</strong><small>Design, technology, professional services</small><b>↗</b></button><button data-toast="Food listings and seller onboarding are future features."><span>✿</span><strong>Food & lifestyle</strong><small>Local products and everyday finds</small><b>↗</b></button><button data-toast="Creator shops need accounts and secure payments before launch."><span>✳</span><strong>Creator shops</strong><small>Work directly from independent creators</small><b>↗</b></button></div>
+      </section>
+
+      <section class="view" id="view-create">
+        <div class="page-intro"><p class="eyebrow">YOUR VOICE, YOUR VISION</p><h1>Make something <em>matter.</em></h1><p>AYÉRA should be a place where African creativity can be seen, shared and discovered.</p></div>
+        <div class="create-grid"><div class="create-main"><span class="create-symbol">✳</span><p class="eyebrow">CREATOR STUDIO · CONCEPT</p><h2>Your next idea deserves <em>a place.</em></h2><p>Plan for stories, short videos, photo essays, local guides and creative portfolios. Publishing will be enabled after accounts, storage and moderation are built.</p><button class="button button-lime" data-toast="Publishing is not active in this prototype. Next step: secure sign-in and media storage.">Plan a creation <span>↗</span></button></div><div class="create-side"><h3>What could you share?</h3><div><span>▧</span><p><strong>Stories & guides</strong><small>Teach people something about your world.</small></p></div><div><span>♫</span><p><strong>Video & sound</strong><small>Bring your voice and perspective.</small></p></div><div><span>✦</span><p><strong>Art & ideas</strong><small>Showcase what you are building.</small></p></div></div></div>
+      </section>
+
+      <section class="view" id="view-opportunities">
+        <div class="page-intro"><p class="eyebrow">LEARN · BUILD · GROW</p><h1>Open doors to <em>what's next.</em></h1><p>A future hub for learning, collaboration and business opportunities.</p></div>
+        <div class="opportunity-grid"><article><span>↗</span><p class="eyebrow">SKILLS</p><h3>Digital skills</h3><p>Find learning paths to build confidence with modern digital tools.</p><button class="text-button" data-toast="Learning links will be curated and verified before publication.">Explore path ↗</button></article><article><span>◎</span><p class="eyebrow">COLLABORATION</p><h3>Find collaborators</h3><p>Connect with people who share your interests and ambitions.</p><button class="text-button" data-go="connect">Find your people ↗</button></article><article><span>◇</span><p class="eyebrow">BUSINESS</p><h3>Grow an idea</h3><p>Discover resources and services that help turn ideas into action.</p><button class="text-button" data-go="market">Explore services ↗</button></article></div>
+      </section>
+
+      <section class="view" id="view-world">
+        <div class="page-intro"><p class="eyebrow">THE LONG-TERM VISION</p><h1>Don't just browse a world.<br><em>Step inside it.</em></h1><p>AYÉRA starts on screens people already own and can evolve into immersive digital spaces over time.</p></div>
+        <div class="world-roadmap"><div class="roadmap-stage active"><span>01</span><div><p class="eyebrow">NOW</p><h3>One connected digital hub</h3><p>Discovery, community concepts, creative tools and services on phones and computers.</p></div><b>IN PROGRESS</b></div><div class="roadmap-stage"><span>02</span><div><p class="eyebrow">NEXT</p><h3>Interactive places</h3><p>Richer maps, explorable locations and selected 3D environments.</p></div><b>PLANNED</b></div><div class="roadmap-stage"><span>03</span><div><p class="eyebrow">FUTURE</p><h3>Immersive AYÉRA</h3><p>Compatible VR/AR experiences where people can meet and explore in shared spaces.</p></div><b>VISION</b></div></div>
+        <div class="notice-panel"><span class="notice-icon">◉</span><div><strong>VR is a direction, not a requirement.</strong><p>People should be able to participate through accessible devices first. Immersive features will depend on real user demand, device compatibility and development resources.</p></div></div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-view="home"><span>⌂</span>Home</button><button data-view="discover"><span>⌕</span>Discover</button><button data-view="connect"><span>◎</span>Connect</button><button data-view="market"><span>◇</span>Market</button><button data-view="world"><span>◉</span>World</button></nav>
   </div>
-  <nav id="nav" class="hud" aria-label="Explore AYÉRA">
-    <button data-go="plaza" type="button">Plaza</button>
-    <button data-go="culture" type="button">Culture</button>
-    <button data-go="creators" type="button">Creators</button>
-    <button data-go="stories" type="button">Stories</button>
-    <button data-go="places" type="button">Places</button>
-  </nav>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <section id="discovery-hub" class="discovery-hub" hidden aria-modal="true" role="dialog" aria-labelledby="hub-title">
-    <div class="hub-backdrop" data-hub-close></div>
-    <div class="hub-sheet"><header class="hub-head"><div><div class="eyebrow"><span class="live-dot"></span> THE AYÉRA COLLECTION</div><h2 id="hub-title">Discover <em>Africa.</em></h2><p>Places, people and living culture — connected by place.</p></div><button class="details-close" type="button" data-hub-close aria-label="Close discovery">×</button></header>
-      <div class="hub-tabs" role="tablist" aria-label="Discovery categories"><button class="active" data-hub-tab="all" role="tab" aria-selected="true">For you</button><button data-hub-tab="culture" role="tab" aria-selected="false">Culture</button><button data-hub-tab="creators" role="tab" aria-selected="false">Creators</button><button data-hub-tab="stories" role="tab" aria-selected="false">Stories</button><button data-hub-tab="places" role="tab" aria-selected="false">Places</button></div>
-      <div class="hub-search"><span>⌕</span><input id="hub-search" type="search" placeholder="Search culture, cities, stories…" aria-label="Search discovery collection"></div>
-      <div id="hub-grid" class="hub-grid" aria-live="polite"></div><p class="hub-footnote">A curated starting collection. Local stories and creator profiles can grow with community contributions.</p>
-    </div>
-  </section>
-  <script src="app.js" defer></script>
-  <script src="map.js" defer></script>
-  <script src="discover.js" defer></script>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="aboutDialog"><div class="dialog-inner"><button class="dialog-close" id="closeDialog" aria-label="Close">×</button><p class="eyebrow">ABOUT THIS BUILD</p><h2>AYÉRA is a <em>work in progress.</em></h2><p>This is a front-end concept to explore the dashboard direction. Some buttons demonstrate navigation or preview messages; real accounts, messaging, payments, live listings and VR are not connected yet.</p><button class="button button-lime" id="dialogOkay">Got it</button></div></dialog>
+  <script src="app.js"></script>
 </body>
 </html>

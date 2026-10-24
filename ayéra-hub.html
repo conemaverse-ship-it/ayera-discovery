@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b16">
+  <title>AYÉRA — Discover Africa</title>
+  <link rel="stylesheet" href="ayéra-hub.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ayera home">
+        <span class="brand-mark">A</span><span>AYÉRA</span>
+      </a>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="savedToggle" aria-label="Show saved items" title="Saved items">♡ <span id="savedCount">0</span></button>
+        <button class="avatar" aria-label="Your profile">Y</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> AFRICA, CONNECTED</p>
+          <h1>Your world.<br><em>Your Africa.</em></h1>
+          <p class="hero-subtitle">Discover places, people, culture and opportunities across Africa — one connected world, starting right here.</p>
+          <a class="primary-btn" href="#discover">Explore the world <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="globe"><span>AFRICA</span><i>✳</i></div>
+          <span class="float-tag tag-one">Culture ✦</span>
+          <span class="float-tag tag-two">People ◉</span>
+          <span class="float-tag tag-three">Possibility ↗</span>
+        </div>
+      </section>
+
+      <section class="quick-links" aria-label="Explore categories">
+        <button class="quick-link active" data-category="All"><span>✦</span> For you</button>
+        <button class="quick-link" data-category="Places"><span>⌖</span> Places</button>
+        <button class="quick-link" data-category="Culture"><span>◈</span> Culture</button>
+        <button class="quick-link" data-category="Creators"><span>✳</span> Creators</button>
+        <button class="quick-link" data-category="Opportunities"><span>↗</span> Opportunities</button>
+      </section>
+
+      <section class="discover-section" id="discover">
+        <div class="section-heading">
+          <div><p class="eyebrow">THE DISCOVERY HUB</p><h2>Find your next <em>something.</em></h2></div>
+          <span class="section-note">A world of discovery</span>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search places, culture, creators…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div class="filter-row" id="filterRow" aria-label="Category filters">
+          <button class="filter-chip selected" data-category="All">All</button>
+          <button class="filter-chip" data-category="Places">Places</button>
+          <button class="filter-chip" data-category="Culture">Culture</button>
+          <button class="filter-chip" data-category="Creators">Creators</button>
+          <button class="filter-chip" data-category="Stories">Stories</button>
+          <button class="filter-chip" data-category="Opportunities">Opportunities</button>
+        </div>
+        <div class="content-grid" id="contentGrid" aria-live="polite"></div>
+        <p class="empty-state" id="emptyState" hidden>No discoveries match that search yet. Try another word or category.</p>
+        <div class="section-footer"><span id="resultCount">Showing discoveries</span><span class="demo-note">Preview content · not a live directory</span></div>
+      </section>
+
+      <section class="world-banner">
+        <div><p class="eyebrow">THE NEXT CHAPTER</p><h2>More than a screen.<br><em>A world to step into.</em></h2><p>AYÉRA starts on the devices people already own, with room to grow into interactive 3D and immersive experiences.</p></div>
+        <div class="world-symbol" aria-hidden="true">A<span>↗</span></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a class="nav-item active" href="#"><span>⌂</span>Home</a>
+      <a class="nav-item" href="#discover"><span>⌕</span>Explore</a>
+      <button class="nav-item" id="connectButton"><span>◎</span>Connect</button>
+      <button class="nav-item" id="createButton"><span>＋</span>Create</button>
+      <button class="nav-item" id="worldButton"><span>◉</span>Your world</button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="ayéra-hub.js"></script>
+</body>
+</html>
